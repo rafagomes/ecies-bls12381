@@ -69,6 +69,7 @@ func main() {
     fmt.Println("Plaintext:", string(plaintext))
 }
 ```
+This can also be found in the [example](example) directory.
 
 ## License
 
