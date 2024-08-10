@@ -1,4 +1,9 @@
-# ecies-bls12381
+# Package ecies-bls12381
+
+[![GoDoc](https://pkg.go.dev/badge/github.com/rafagomes/ecies-bls12381)](https://pkg.go.dev/github.com/rafagomes/ecies-bls12381)
+[![codecov](https://codecov.io/github/rafagomes/ecies-bls12381/graph/badge.svg?token=6BDB7436C1)](https://codecov.io/github/rafagomes/ecies-bls12381)
+[![Go Report Card](https://goreportcard.com/badge/github.com/rafagomes/ecies-bls12381)](https://goreportcard.com/report/github.com/rafagomes/ecies-bls12381)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 `ecies-bls12381` is a Go package that simplifies keypair generation, encryption, and decryption using Elliptic Curve Integrated Encryption Scheme (ECIES) with the BLS12381 elliptic curve. It leverages the Kyber cryptographic library for secure operations, making it easy for developers to integrate robust cryptographic functionalities into their applications. Suitable for proxy re-encryption.
 
