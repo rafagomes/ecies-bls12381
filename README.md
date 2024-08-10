@@ -27,8 +27,6 @@ go get github.com/rafagomes/ecies-bls12381
 
 ## Usage
 
-### Import the package
-
 ```go
 package main
 
