@@ -1,6 +1,7 @@
 package eciesbls12381
 
 import (
+	"errors"
 	"math/big"
 
 	"github.com/drand/kyber"
@@ -30,12 +31,18 @@ func GenerateECKeypair() (kyber.Point, kyber.Scalar) {
 }
 
 // GetECPublicKeyFromPrivateKey derives the public key from a given private key.
-func GetECPublicKeyFromPrivateKey(privateKey kyber.Scalar) kyber.Point {
-	return suite.Point().Mul(privateKey, nil)
+func GetECPublicKeyFromPrivateKey(privateKey kyber.Scalar) (kyber.Point, error) {
+	if privateKey == nil {
+		return nil, errors.New("private key is required")
+	}
+	return suite.Point().Mul(privateKey, nil), nil
 }
 
 // EncryptWithEC encrypts a message using the recipient's public key.
 func EncryptWithEC(publicKey kyber.Point, message []byte) ([]byte, error) {
+	if publicKey == nil || message == nil {
+		return nil, errors.New("public key and message are required")
+	}
 	ciphertext, err := ecies.Encrypt(suite, publicKey, message, sha3.New256)
 	if err != nil {
 		return nil, err
@@ -45,6 +52,9 @@ func EncryptWithEC(publicKey kyber.Point, message []byte) ([]byte, error) {
 
 // DecryptWithEC decrypts a ciphertext using the recipient's private key.
 func DecryptWithEC(privateKey kyber.Scalar, ciphertext []byte) ([]byte, error) {
+	if privateKey == nil || ciphertext == nil {
+		return nil, errors.New("private key and ciphertext are required")
+	}
 	plaintext, err := ecies.Decrypt(suite, privateKey, ciphertext, sha3.New256)
 	if err != nil {
 		return nil, err
