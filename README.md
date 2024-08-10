@@ -35,42 +35,20 @@ import (
 )
 ```
 
-### Example code
+### Code Examples
 
-```go
-package main
+#### Basic Encryption and Decryption
 
-import (
-    "fmt"
-    "github.com/rafagomes/ecies-bls12381"
-)
+You can find the example code for basic encryption and decryption in the [examples/basic-encryption](examples/basic-encryption/main.go).
 
-func main() {
-    // Generate key pair
-    publicKey, privateKey := eciesbls12381.GenerateECKeypair()
-    fmt.Println("Public Key:", publicKey)
-    fmt.Println("Private Key:", privateKey)
+#### Proxy Re-Encryption
+You can find the example code for proxy re-encryption in the [examples/proxy-reencryption](examples/proxy-reencryption/main.go).
 
-    // Encrypt a message
-    message := []byte("Hello, BLS12381!")
-    ciphertext, err := eciesbls12381.EncryptWithEC(publicKey, message)
-    if err != nil {
-        fmt.Println("Encryption error:", err)
-        return
-    }
-    fmt.Println("Ciphertext:", ciphertext)
+## Contributing
+Feel free to open issues and pull requests. Any feedback is highly appreciated!
 
-    // Decrypt the message
-    plaintext, err := eciesbls12381.DecryptWithEC(privateKey, ciphertext)
-    if err != nil {
-        fmt.Println("Decryption error:", err)
-        return
-    }
-    fmt.Println("Plaintext:", string(plaintext))
-}
-```
-This can also be found in the [example](example) directory.
-<!-- TODO: CREATE THE PROXY REENCRYPTION EXAMPLE -->
+## Authors
+@rafagomes
 
 ## License
 
