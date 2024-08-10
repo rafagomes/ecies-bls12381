@@ -1,6 +1,6 @@
 module github.com/rafagomes/ecies-bls12381
 
-go 1.22.5
+go 1.22
 
 require (
 	github.com/drand/kyber v1.2.0
